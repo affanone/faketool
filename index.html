@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remote Fake</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?v=2" />
+  </head>
+  <body>
+    <div class="container py-5">
+      <h1 class="text-center mb-4">Remote Fake</h1>
+      <div class="card mx-auto" style="max-width: 600px">
+        <div class="card-body">
+          <form id="remote-form" class="vstack gap-3">
+            <div class="row">
+              <div class="col-md-8">
+                <label for="address" class="form-label">Address PC</label>
+                <input type="text" id="address" class="form-control" required />
+              </div>
+
+              <div class="col-md-4">
+                <label for="screen" class="form-label">Select View</label>
+                <select id="screen" class="form-select" required>
+                  <option value="crash">Crash Screen</option>
+                  <option value="blank">Blank Screen</option>
+                  <option value="horror">Horror Screen</option>
+                  <option value="bug">Bug Screen</option>
+                  <option value="lock">Lock Screen</option>
+                  <option value="custom">Custom</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="custom-url-wrapper" class="d-none">
+              <label for="url" class="form-label">Custom URL View</label>
+              <input
+                type="url"
+                id="url"
+                class="form-control"
+                placeholder="https://..."
+              />
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" id="title" class="form-control" />
+              </div>
+              <div class="col-md-6">
+                <label for="titleBarStyle" class="form-label"
+                  >Title Bar Style</label
+                >
+                <select id="titleBarStyle" class="form-select">
+                  <option value="default">Default</option>
+                  <option value="hidden">Hidden</option>
+                  <option value="hiddenInset">Hidden Inset</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-3">
+                <label for="left" class="form-label">Left</label>
+                <input type="number" id="left" class="form-control" />
+              </div>
+              <div class="col-md-3">
+                <label for="top" class="form-label">Top</label>
+                <input type="number" id="top" class="form-control" />
+              </div>
+              <div class="col-md-3">
+                <label for="width" class="form-label">Width</label>
+                <input type="number" id="width" class="form-control" />
+              </div>
+              <div class="col-md-3">
+                <label for="height" class="form-label">Height</label>
+                <input type="number" id="height" class="form-control" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="fullscreen"
+                    checked
+                  />
+                  <label class="form-check-label" for="fullscreen"
+                    >Fullscreen</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="maximize"
+                  />
+                  <label class="form-check-label" for="maximize"
+                    >Maximize</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="transparent"
+                  />
+                  <label class="form-check-label" for="transparent"
+                    >Transparent</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="resizable"
+                  />
+                  <label class="form-check-label" for="resizable"
+                    >Resizable</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="minimizable"
+                  />
+                  <label class="form-check-label" for="minimizable"
+                    >Minimizable</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="focus" />
+                  <label class="form-check-label" for="focus"
+                    >Always Focus</label
+                  >
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="maximizable"
+                  />
+                  <label class="form-check-label" for="maximizable"
+                    >Maximizable</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="skipTaskbar"
+                    checked
+                  />
+                  <label class="form-check-label" for="skipTaskbar"
+                    >Skip Taskbar</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="alwaysOnTop"
+                    checked
+                  />
+                  <label class="form-check-label" for="alwaysOnTop"
+                    >Always On Top</label
+                  >
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="frame" />
+                  <label class="form-check-label" for="frame">Frame</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="kiosk"
+                    checked
+                  />
+                  <label class="form-check-label" for="kiosk">Kiosk</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <label for="showDelay" class="form-label"
+                  >Show Delay (ms)</label
+                >
+                <input
+                  type="number"
+                  id="showDelay"
+                  class="form-control"
+                  value="2000"
+                />
+              </div>
+              <div class="col-md-6">
+                <label for="autoclose" class="form-label"
+                  >Auto Close (ms)</label
+                >
+                <input type="number" id="autoclose" class="form-control" />
+              </div>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="useBackroundColor"
+                checked
+              />
+              <label class="form-check-label" for="useBackroundColor"
+                >Background Color</label
+              >
+
+              <input
+                style="height: 60px"
+                type="color"
+                id="backgroundColor"
+                class="form-control"
+              />
+            </div>
+
+            <div class="d-flex gap-2">
+              <button type="submit" class="btn btn-primary">SET</button>
+              <button type="reset" class="btn btn-secondary">RESET</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+    <script type="module" src="script.js?v=4"></script>
+  </body>
+</html>

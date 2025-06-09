@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        background: none;
+        overflow: hidden;
+        cursor: none;
+        user-select: none;
+      }
+
+      .bug {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background: url("assets/imgs/bug.png") no-repeat center center;
+        background-size: contain;
+        pointer-events: none;
+        z-index: 999;
+        transform-origin: center center;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function createBug() {
+        const bug = document.createElement("div");
+        bug.classList.add("bug");
+
+        document.body.appendChild(bug);
+
+        // Start at random position
+        let x = Math.random() * window.innerWidth;
+        let y = Math.random() * window.innerHeight;
+        let angle = Math.random() * 360;
+
+        bug.style.left = x + "px";
+        bug.style.top = y + "px";
+        bug.style.transform = `rotate(${angle}deg)`;
+
+        const speed = 1.5 + Math.random() * 1.5;
+
+        function move() {
+          // Update position
+          x += Math.cos((angle * Math.PI) / 180) * speed;
+          y += Math.sin((angle * Math.PI) / 180) * speed;
+
+          // Ganti arah secara acak
+          if (Math.random() < 0.02) {
+            angle += Math.random() * 90 - 45; // belok kiri atau kanan
+          }
+
+          // Bounce dari tepi layar
+          if (x < 0 || x > window.innerWidth) angle = 180 - angle;
+          if (y < 0 || y > window.innerHeight) angle = -angle;
+
+          // Update posisi dan rotasi
+          bug.style.left = x + "px";
+          bug.style.top = y + "px";
+          bug.style.transform = `rotate(${angle + 90}deg)`;
+        }
+
+        const interval = setInterval(move, 30);
+
+        // Hapus setelah beberapa waktu
+        setTimeout(() => {
+          clearInterval(interval);
+          bug.remove();
+        }, 20000);
+      }
+
+      // Spawn beberapa serangga
+      for (let i = 0; i < 5; i++) {
+        setTimeout(createBug, i * 2000);
+      }
+
+      // Tambahan bug tiap 10 detik
+      setInterval(createBug, 10000);
+    </script>
+  </body>
+</html>
