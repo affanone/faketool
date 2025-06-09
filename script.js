@@ -199,21 +199,21 @@ form.addEventListener("submit", (e) => {
         kiosk: kioskCheckbox.checked,
         focus: focusCheckbox.checked,
         titleBarStyle: titleBarStyleSelect.value,
-        showDelay: parseInt(showDelayInput.value || "2000"),
-        autoclose: parseInt(autocloseInput.value || "0"),
+        showDelay: parseInt(showDelayInput.value ?? "2000"),
+        autoclose: parseInt(autocloseInput.value ?? "0"),
         backgroundColor: useBackroundColorCheckbox.checked
-          ? backgroundColorInput.value || null
+          ? backgroundColorInput.value ?? null
           : null,
         left: leftInput.value ? parseInt(leftInput.value) : null,
         top: topInput.value ? parseInt(topInput.value) : null,
         width: widthInput.value ? parseInt(widthInput.value) : null,
         height: heightInput.value ? parseInt(heightInput.value) : null,
-        title: titleInput.value || "",
+        title: titleInput.value ?? "",
       };
 
       let conf;
       try {
-        conf = JSON.parse(localStorage.getItem("configs")) || {};
+        conf = JSON.parse(localStorage.getItem("configs")) ?? {};
       } catch (e) {
         conf = {};
       }
@@ -259,7 +259,7 @@ async function updateData(pathWithId, data) {
 }
 
 function fillFormDefault(screenType) {
-  const config = masterUrlConfigDefault[screenType] || {};
+  const config = masterUrlConfigDefault[screenType] ?? {};
   const {
     url,
     fullscreen = true,
@@ -286,7 +286,7 @@ function fillFormDefault(screenType) {
 
   // Assign ke elemen form
   if (screenType !== "custom") {
-    urlInput.value = url || "";
+    urlInput.value = url ?? "";
   }
 
   fullscreenCheckbox.checked = fullscreen;
@@ -303,12 +303,17 @@ function fillFormDefault(screenType) {
   frameCheckbox.checked = frame;
   kioskCheckbox.checked = kiosk;
 
-  titleBarStyleSelect.value = titleBarStyle || "default";
+  titleBarStyleSelect.value = titleBarStyle ?? "default";
 
-  showDelayInput.value = showDelay || 0;
-  autocloseInput.value = autoclose || 0;
+  showDelayInput.value = showDelay ?? 0;
+  autocloseInput.value = autoclose ?? 0;
 
-  backgroundColorInput.value = backgroundColor || "#ffffff";
+  backgroundColorInput.value = backgroundColor ?? "#ffffff";
+  if (backgroundColor === null) {
+    useBackroundColorCheckbox.checked = false;
+  } else {
+    useBackroundColorCheckbox.checked = true;
+  }
 
   leftInput.value = left ?? "";
   topInput.value = top ?? "";
