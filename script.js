@@ -47,6 +47,8 @@ const backgroundColorInput = document.getElementById("backgroundColor");
 
 const leftInput = document.getElementById("left");
 const topInput = document.getElementById("top");
+const rightInput = document.getElementById("right");
+const bottomInput = document.getElementById("bottom");
 const widthInput = document.getElementById("width");
 const heightInput = document.getElementById("height");
 const titleInput = document.getElementById("title");
@@ -214,6 +216,8 @@ form.addEventListener("submit", (e) => {
           : null,
         left: leftInput.value ? parseInt(leftInput.value) : null,
         top: topInput.value ? parseInt(topInput.value) : null,
+        right: rightInput.value ? parseInt(rightInput.value) : null,
+        bottom: bottomInput.value ? parseInt(bottomInput.value) : null,
         width: widthInput.value ? parseInt(widthInput.value) : null,
         height: heightInput.value ? parseInt(heightInput.value) : null,
         title: titleInput.value ?? "",
@@ -287,6 +291,8 @@ function fillFormDefault(screenType) {
     backgroundColor = null,
     left,
     top,
+    right,
+    bottom,
     width,
     height,
     title = "",
@@ -325,6 +331,8 @@ function fillFormDefault(screenType) {
 
   leftInput.value = left ?? "";
   topInput.value = top ?? "";
+  rightInput.value = right ?? "";
+  bottomInput.value = bottom ?? "";
   widthInput.value = width ?? "";
   heightInput.value = height ?? "";
 

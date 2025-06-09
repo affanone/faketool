@@ -77,12 +77,32 @@
                 <input type="number" id="top" class="form-control" />
               </div>
               <div class="col-md-3">
+                <label for="right" class="form-label">Right</label>
+                <input type="number" id="right" class="form-control" />
+              </div>
+              <div class="col-md-3">
+                <label for="bottom" class="form-label">Bottom</label>
+                <input type="number" id="bottom" class="form-control" />
+              </div>
+              <div class="col-md-3">
                 <label for="width" class="form-label">Width</label>
                 <input type="number" id="width" class="form-control" />
               </div>
               <div class="col-md-3">
                 <label for="height" class="form-label">Height</label>
                 <input type="number" id="height" class="form-control" />
+              </div>
+
+              <div class="col-md-6">
+                <label for="showDelay" class="form-label"
+                  >Show Delay (ms)</label
+                >
+                <input
+                  type="number"
+                  id="showDelay"
+                  class="form-control"
+                  value="2000"
+                />
               </div>
             </div>
             <div class="row">
@@ -195,41 +215,33 @@
             </div>
 
             <div class="row">
-              <div class="col-md-6">
-                <label for="showDelay" class="form-label"
-                  >Show Delay (ms)</label
-                >
-                <input
-                  type="number"
-                  id="showDelay"
-                  class="form-control"
-                  value="2000"
-                />
-              </div>
-              <div class="col-md-6">
+              <div class="col-md-4">
                 <label for="autoclose" class="form-label"
                   >Auto Close (ms)</label
                 >
                 <input type="number" id="autoclose" class="form-control" />
               </div>
-            </div>
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                id="useBackroundColor"
-                checked
-              />
-              <label class="form-check-label" for="useBackroundColor"
-                >Background Color</label
-              >
 
-              <input
-                style="height: 60px"
-                type="color"
-                id="backgroundColor"
-                class="form-control"
-              />
+              <div class="col-md-8">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="useBackroundColor"
+                    checked
+                  />
+                  <label class="form-check-label" for="useBackroundColor"
+                    >Background Color</label
+                  >
+
+                  <input
+                    style="height: 60px"
+                    type="color"
+                    id="backgroundColor"
+                    class="form-control"
+                  />
+                </div>
+              </div>
             </div>
 
             <div class="d-flex gap-2">
@@ -242,6 +254,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
-    <script type="module" src="script.js?v=7"></script>
+    <script type="module" src="script.js?v=8"></script>
   </body>
 </html>
