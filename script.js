@@ -56,6 +56,7 @@ const form = document.getElementById("remote-form");
 
 const masterUrl = {
   crash: "https://affanone.github.io/faketool/crash.html",
+  crash2: "https://affanone.github.io/faketool/crash2.html",
   blank: "https://affanone.github.io/faketool/blank.html",
   horror: "https://affanone.github.io/faketool/horror.html",
   bug: "https://affanone.github.io/faketool/bug.html",
@@ -86,6 +87,13 @@ let masterUrlConfigDefault = {
     height: null,
     focus: true,
     title: "Crash",
+  },
+  crash2: {
+    url: masterUrl.blank,
+    fullscreen: true,
+    transparent: true,
+    backgroundColor: "#ffffff",
+    title: "Blank",
   },
   blank: {
     url: masterUrl.blank,

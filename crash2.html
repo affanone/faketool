@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simulasi Crash</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: none;
+        user-select: none;
+      }
+
+      .crash-strip {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 120px;
+        height: 100%;
+        background: #000;
+      }
+
+      .solid-line {
+        position: absolute;
+        width: 2px;
+        height: 100%;
+      }
+
+      .white-line {
+        background-color: #ffffff;
+      }
+      .red-line {
+        background-color: #ff0000;
+      }
+      .green-line {
+        background-color: #00ff00;
+      }
+      .blue-line {
+        background-color: #0000ff;
+      }
+      .large {
+        width: 48px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="crash-strip">
+      <div class="solid-line white-line large" style="right: 0px"></div>
+      <div class="solid-line white-line" style="left: 5px"></div>
+      <div class="solid-line red-line" style="left: 11px"></div>
+      <div class="solid-line green-line" style="left: 17px"></div>
+      <div class="solid-line blue-line" style="left: 24px"></div>
+      <div class="solid-line red-line" style="left: 30px"></div>
+      <div class="solid-line white-line" style="left: 37px"></div>
+      <div class="solid-line blue-line" style="left: 43px"></div>
+      <div class="solid-line green-line" style="left: 49px"></div>
+      <div class="solid-line white-line" style="left: 54px"></div>
+      <div class="solid-line red-line" style="left: 61px"></div>
+      <div class="solid-line green-line" style="left: 67px"></div>
+      <div class="solid-line blue-line" style="left: 72px"></div>
+      <div class="solid-line white-line" style="left: 78px"></div>
+      <div class="solid-line blue-line" style="left: 84px"></div>
+      <div class="solid-line red-line" style="left: 89px"></div>
+      <div class="solid-line green-line" style="left: 94px"></div>
+      <div class="solid-line white-line" style="left: 100px"></div>
+      <div class="solid-line green-line" style="left: 105px"></div>
+      <div class="solid-line red-line" style="left: 110px"></div>
+      <div class="solid-line blue-line" style="left: 115px"></div>
+    </div>
+  </body>
+</html>
