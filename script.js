@@ -209,8 +209,8 @@ form.addEventListener("submit", (e) => {
         kiosk: kioskCheckbox.checked,
         focus: focusCheckbox.checked,
         titleBarStyle: titleBarStyleSelect.value,
-        showDelay: parseInt(showDelayInput.value ?? "2000"),
-        autoclose: parseInt(autocloseInput.value ?? "0"),
+        showDelay: parseInt(showDelayInput.value || "0"),
+        autoclose: parseInt(autocloseInput.value || "0"),
         backgroundColor: useBackroundColorCheckbox.checked
           ? backgroundColorInput.value ?? null
           : null,
@@ -359,6 +359,10 @@ function closeLoading() {
 }
 
 function resetForm() {
+  const old = screenSelect.value;
+  const addr = addressInput.value;
   form.reset();
+  screenSelect.value = old;
+  addressInput.value = addr;
   fillFormDefault(screenSelect.value);
 }
