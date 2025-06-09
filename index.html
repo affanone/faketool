@@ -21,11 +21,6 @@
         <div class="card-body">
           <form id="remote-form" class="vstack gap-3">
             <div class="row">
-              <div class="col-md-8">
-                <label for="address" class="form-label">Address PC</label>
-                <input type="text" id="address" class="form-control" required />
-              </div>
-
               <div class="col-md-4">
                 <label for="screen" class="form-label">Select View</label>
                 <select id="screen" class="form-select" required>
@@ -37,6 +32,10 @@
                   <option value="lock">Lock Screen</option>
                   <option value="custom">Custom</option>
                 </select>
+              </div>
+              <div class="col-md-8">
+                <label for="address" class="form-label">Address PC</label>
+                <input type="text" id="address" class="form-control" required />
               </div>
             </div>
 
@@ -51,11 +50,21 @@
             </div>
 
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-2">
+                <label for="btn-default" class="form-label">&nbsp;</label>
+                <button
+                  id="btn-default"
+                  class="btn btn-outline-primary"
+                  type="button"
+                >
+                  DEFAULT
+                </button>
+              </div>
+              <div class="col-md-5">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" id="title" class="form-control" />
               </div>
-              <div class="col-md-6">
+              <div class="col-md-5">
                 <label for="titleBarStyle" class="form-label"
                   >Title Bar Style</label
                 >

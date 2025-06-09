@@ -55,6 +55,7 @@ const titleInput = document.getElementById("title");
 
 const customUrlWrapper = document.getElementById("custom-url-wrapper");
 const form = document.getElementById("remote-form");
+const btnDefault = document.getElementById("btn-default");
 
 const masterUrl = {
   crash: "https://affanone.github.io/faketool/crash.html",
@@ -139,6 +140,91 @@ try {
 } catch (e) {
   console.warn("Data configs di localStorage tidak valid:", e);
 }
+
+btnDefault.addEventListener("click", () => {
+  if (screenSelect.value === "crash") {
+    const def = {
+      url: masterUrl[screenSelect.value],
+      titleBarStyle: "hidden",
+      title: "x800000000001",
+      left: null,
+      top: null,
+      tight: null,
+      bottom: null,
+      width: null,
+      height: null,
+      backgroundColor: null,
+      showDelay: null,
+      autoclose: null,
+      fullscreen: true,
+      maximize: false,
+      transparent: true,
+      resizable: false,
+      minimizable: false,
+      focus: true,
+      maximizable: false,
+      skipTaskbar: true,
+      alwaysOnTop: true,
+      frame: false,
+      kiosk: true,
+    };
+    fillFormDefault(def);
+  } else if (screenSelect.value === "crash2") {
+    const def = {
+      url: masterUrl[screenSelect.value],
+      titleBarStyle: "hidden",
+      title: "x800000000002",
+      left: null,
+      top: 0,
+      tight: 0,
+      bottom: null,
+      width: 120,
+      height: null,
+      backgroundColor: null,
+      showDelay: null,
+      autoclose: null,
+      fullscreen: false,
+      maximize: false,
+      transparent: true,
+      resizable: false,
+      minimizable: false,
+      focus: true,
+      maximizable: false,
+      skipTaskbar: true,
+      alwaysOnTop: true,
+      frame: false,
+      kiosk: true,
+    };
+    fillFormDefault(def);
+  } else if (screenSelect.value === "crash2") {
+    const def = {
+      url: masterUrl[screenSelect.value],
+      titleBarStyle: "hidden",
+      title: "x800000000002",
+      left: null,
+      top: 0,
+      tight: 0,
+      bottom: null,
+      width: 120,
+      height: null,
+      backgroundColor: null,
+      showDelay: null,
+      autoclose: null,
+      fullscreen: false,
+      maximize: false,
+      transparent: true,
+      resizable: false,
+      minimizable: false,
+      focus: true,
+      maximizable: false,
+      skipTaskbar: true,
+      alwaysOnTop: true,
+      frame: false,
+      kiosk: true,
+    };
+    fillFormDefault(def);
+  }
+});
 
 screenSelect.addEventListener("change", () => {
   customUrlWrapper.classList.toggle("d-none", screenSelect.value !== "custom");
@@ -271,7 +357,10 @@ async function updateData(pathWithId, data) {
 }
 
 function fillFormDefault(screenType) {
-  const config = masterUrlConfigDefault[screenType] ?? {};
+  const config =
+    typeof screenType === "object"
+      ? screenType
+      : masterUrlConfigDefault[screenType] ?? {};
   const {
     url,
     fullscreen = true,
