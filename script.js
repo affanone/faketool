@@ -55,11 +55,11 @@ const customUrlWrapper = document.getElementById("custom-url-wrapper");
 const form = document.getElementById("remote-form");
 
 const masterUrl = {
-  crash: "https://faketool.web.app/crash.html",
-  blank: "https://faketool.web.app/blank.html",
-  horror: "https://faketool.web.app/horror.html",
-  bug: "https://faketool.web.app/bug.html",
-  lock: "https://faketool.web.app/lock.html",
+  crash: "https://affanone.github.io/faketool/crash.html",
+  blank: "https://affanone.github.io/faketool/blank.html",
+  horror: "https://affanone.github.io/faketool/horror.html",
+  bug: "https://affanone.github.io/faketool/bug.html",
+  lock: "https://affanone.github.io/faketool/lock.html",
   custom: "Custom",
 };
 
